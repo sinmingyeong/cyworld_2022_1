@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel ="stylesheet" href="jquery.lightbox.css">
+
+    <style>
+        body {
+            background: url(
+                data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAACBJREFUKFNj/P///38GIgAjSOGECRMIKh1ViDeIiA4eAJCTNxNTzCp8AAAAAElFTkSuQmCC            ) repeat;
+            
+        }
+        .container{
+            width: 960px;
+            height: 520px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 3px 2px 0px #696363, -3px 2px 0px #696363 ;
+           
+        }
+        .footer{
+           height: 50px;
+           text-align: center;
+       }
+        div.left{
+            float: left;
+            width: 700px;
+            height:520px;
+            border-radius: 20px;
+            /* overflow: hidden; */
+            position: relative;
+            background-color: rgb(105, 200, 232);
+
+
+        }
+        div.right{
+            float: right;
+            width: 260px;
+            height: 520px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background-color: rgb(105, 200, 232);
+
+        }
+        div.L-dash{
+            width: 670px;
+            height:485px;
+            position: relative;
+            left: 30px;
+            top: 15px;
+            border-style: dashed;
+            border-color: #ffffff;
+            border-radius: 20px;
+        }
+        div.R-dash{
+            width: 230px;
+            height:485px;
+            position: relative;
+            right: 5px;
+            top: 15px;
+            border-style: dashed;
+            border-color: #ffffff;
+            border-radius: 20px;
+        }
+        div.L-paper{
+            width: 650px;
+            height:470px;
+            border: 2px solid black;
+            border-radius: 20px;
+            position: relative;
+            left: 20px;
+            top: 7px;
+            background-color: #ffffff;
+        }
+        div.R-paper{
+            width: 210px;
+            height:470px;
+            border: 2px solid black;
+            border-radius: 20px;
+            position: relative;
+            top: 7px;
+            background-color: #ffffff;
+        }
+        div.L-box{
+            width: 620px;
+            height:400px;
+            border-radius: 20px;
+            position: relative;
+            left: 15px;
+            top: 15px;
+            box-shadow: 2px 2px 2px rgb(190, 190, 190), -2px -2px 2px rgb(190, 190, 190);
+        }
+        div.R-box{
+            width: 180px;
+            height:400px;
+            border-radius: 20px;
+            position: relative;
+            left: 15px;
+            top: 15px;
+            box-shadow: 2px 2px 2px rgb(190, 190, 190), -2px -2px 2px rgb(190, 190, 190);
+        }
+        div.L-main{
+            width: 590px;
+            height:385px;
+            position: relative;
+            left: 15px;
+            top: 15px;
+            text-align: center;
+            overflow: auto;
+        }
+        div.R-main{
+            width: 150px;
+            height:370px;
+            position: relative;
+            left: 15px;
+            top: 15px;
+            text-align: center;
+            overflow: auto;
+            
+        }
+        
+        span.title{
+            height: 40px;
+            width: 200px;
+            float: top;
+            position: relative;
+            left: 10px;
+            top: 5px;
+            text-align: left;
+            font-size: 28px;
+            font-weight: 600;
+            color: rgb(52, 152, 228);
+        }
+        a.adress{
+            font-size: 12px;
+            font-weight: 200;
+            position: relative;
+            top: 10px;
+            left: 200px;
+            color: rgb(100, 103, 106);
+        }
+        div.today{
+            height: 40px;
+            position: relative;
+            left: 5px;
+            top: 5px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 300;  
+        }
+        div.current{
+            width: 300px;
+            height:150px;
+            float: left;
+        }
+        div.currentbox{
+            width: 300px;
+            height:110px;
+            overflow-y: scroll;
+            text-align: left;
+        }
+        div.title2{
+            font-size: 20px;
+            font-weight: 600;
+            text-align: left;
+            color: rgb(52, 152, 228);
+        }
+        span.title3{
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            float: left;
+            color: rgb(52, 152, 228);
+            background-color: aqua;
+        }
+        
+        div.music{
+            width: 270px;
+            height: 150px;
+            float: right;
+            text-align: left;
+           
+        }
+        div.gallery{
+            width: auto;
+            height:300px;
+        }
+        hr.dash{
+            border: none;
+            border: 1px dashed black;
+        }
+        div.profile{
+            width: 150px;
+            height: 80px;
+            text-align: left;
+            position: absolute;
+            bottom: 0px; 
+
+        }
+        #miniroom {          
+            width: 90%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            box-shadow: 2px 2px 2px rgb(190, 190, 190), -2px -2px 2px rgb(190, 190, 190);
+
+        }
+        div.spring{
+            width: 40px;
+            height: 12px;
+            border-radius: 15px;
+            position: absolute;
+            background-color: rgb(212, 208, 208);
+            box-shadow: 0 0 3px rgb(0 0 0);
+            z-index: 10;
+        }
+        .sp1{
+            
+            top: 150px;
+            left: 680px;
+        }
+        .sp2{
+            top: 390px;
+            left: 680px;
+        }
+        .sp3{
+            top: 420px;
+            left: 680px;
+        }
+        div.mark{
+            display: inline-block;
+            width: 55px;
+            height: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+        .diary{
+            background-color: rgb(83, 172, 224);
+        }
+        .gallerym {
+            background-color: rgb(234, 159, 240);
+        }
+        .video {
+            background-color: rgb(219, 239, 132);
+
+        }
+        a{
+            text-decoration: none;
+        }
+        
+        a.title:hover, a:focus { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+            @keyframes rainbowLink {     
+            0% { color: #ff2a2a; }
+            15% { color: #ff7a2a; }
+            30% { color: #ffc52a; }
+            45% { color: #43ff2a; }
+            60% { color: #2a89ff; }
+            75% { color: #202082; }
+            90% { color: #6b2aff; } 
+            100% { color: #e82aff; }
+            }
+        p{
+            text-align: center;
+        }
+        audio{
+             width: 260px;
+             height: 30px;
+        }
+        a.name{
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            color: rgb(52, 152, 228);
+        }
+        a.birth{
+            font-size: 12px;
+            font-weight: 200;
+            text-align: left;
+            color: rgb(100, 103, 106);
+        }
+        a.mail{
+            font-size: 12px;
+            font-weight: 400;
+            text-align: left;
+            color: #fe8a2b;
+        }
+        
+       
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script> 
+    <script src="jquery.lightbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('span').lightBox();
+        });
+        </script>
+<script>
+    function new_window1() {
+      window.open(
+        "page1.html",
+        "콘서트 가보자고",
+        "width=720, height=480, top=50, left=50"
+      );
+    }
+    function new_window2() {
+      window.open(
+        "page2.html",
+        "노는 게 제일 좋아",
+        "width=720, height=480, top=50, left=50"
+      );
+    }
+    function new_window3() {
+      window.open(
+        "page3.html",
+        "충격 내 최애 너무 귀여움",
+        "width=720, height=480, top=50, left=50"
+      );
+    }
+    function new_window4() {
+      window.open(
+        "page4.html",
+        "html 과제 참고 메모",
+        "width=720, height=480, top=50, left=50"
+      );
+    }
+  </script>
+    
+
+</head>
+<body>
+    
+    <div class="footer">
+    </div>
+    <div class="container">
+        <div class="left">
+            <div class="spring sp1"></div>
+            <div class="spring sp2"></div>
+            <div class="spring sp3"></div>
+            <div class="L-dash">
+                
+                <div class="L-paper"> 
+                    <span class="title">&nbsp노는 게 제일 좋아</span>
+                    <a class="adress">https://www.htmlgwaje.com/hari005</a>      
+                    <div class="L-box">
+                        <div class="L-main">
+                            <div class="current">
+                                <div class="title2">
+                                    &nbsp최근게시물
+                                </div>
+                                <hr>
+                                <div class="currentbox">
+                                    <div class="mark diary">일기장</div>
+                                    <a class="title" onclick="new_window1();">
+                                        제목1
+                                    </a>
+                                    <br>
+                                    <div class="mark gallerym">사진첩</div>
+                                    <a class="title" onclick="new_window2();">
+                                        제목2
+                                    </a>
+                                    <br>
+                                    <div class="mark video">동영상</div>
+                                    <a class="title" onclick="new_window3();">
+                                        제목3
+                                    </a>
+                                    <br>
+                                    <div class="mark diary">게시판</div>
+                                    <a class="title" onclick="new_window4();">
+                                        html 과제 참고 메모
+                                    </a>
+                                </div>
+                                
+                            </div>
+                            <div class="music">
+                                <div class="title2">
+                                    &nbsp주크박스
+                                </div>
+                                <hr>
+                                <p> ♪ 임시bgm - 키보드소리 (5/20)</p>
+                                <audio autoplay="true" controls="controls">
+                                    <source src="임시 bgm.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                                <img src="miniroom.png" id="miniroom">
+                            <div class="title2">
+                                &nbsp최근 사진
+                            </div>
+                            <hr>
+                            
+                            <div class="gallery">
+                                <span href="pic (4).jpg" >
+                                    <img src="pic (4).jpg" style="max-width: 100%;">
+                                </span>
+                                <span href="pic (3).jpg">
+                                    <img src="pic (3).jpg" style="max-width: 50%;">
+                                </span>
+                                <span href="pic (1).jpg">
+                                    <img src="pic (1).jpg" style="max-width: 49%;">
+                                </span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right">
+            <div class="R-dash">
+                <div class="R-paper">
+                    <div class="today"><br>today: 50 / total: 300</div>
+                    <div class="R-box">
+                        <div class="R-main">
+                            <img src="profile.jpg" style="width: 150px; height: 150px;">
+                            자기소개 <br> 입니다 <br> 와아
+                            <div class="profile">
+                                <a class="name">신민경</a>
+                                <a class="birth">2000.05.28</a><br>
+                                <a class="mail">hari005@semyung.ac.kr</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>
